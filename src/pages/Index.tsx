@@ -46,7 +46,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-background/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}>
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <h1 className="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
@@ -114,7 +114,7 @@ const Index = () => {
             {nftGifts.map((gift, index) => (
               <Card 
                 key={index}
-                className="group hover:scale-105 transition-all duration-300 hover:shadow-2xl cursor-pointer border-2 animate-fade-in bg-gradient-to-br from-card to-muted/30"
+                className="group hover:scale-105 transition-all duration-300 hover:shadow-2xl cursor-pointer border-2 animate-fade-in bg-gradient-to-br from-white to-muted/30"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
