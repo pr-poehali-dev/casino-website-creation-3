@@ -262,12 +262,12 @@ const Index = () => {
                   <Icon name="MessageCircle" className="text-secondary" size={24} />
                   <span className="font-semibold">Telegram:</span>
                   <a 
-                    href="https://t.me/yournickname" 
+                    href="https://t.me/immspeedy" 
                     className="text-secondary hover:text-primary transition-colors font-bold"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    @yournickname
+                    @immspeedy
                   </a>
                 </div>
               </div>
