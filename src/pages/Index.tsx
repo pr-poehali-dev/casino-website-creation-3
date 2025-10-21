@@ -166,7 +166,7 @@ const Index = () => {
                       </li>
                       <li className="flex items-center gap-2">
                         <Icon name="Check" className="text-secondary" size={20} />
-                        Безопасные транзакции
+                        Только проверенные боты
                       </li>
                       <li className="flex items-center gap-2">
                         <Icon name="Check" className="text-secondary" size={20} />
@@ -196,8 +196,8 @@ const Index = () => {
                   <div>
                     <h3 className="text-2xl font-bold mb-3">Надёжность</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Работаю напрямую через Telegram, без посредников. 
-                      Все сделки прозрачны и безопасны.
+                      Провожу сделки только через проверенных ботов в Telegram. 
+                      Все транзакции прозрачны и безопасны.
                     </p>
                   </div>
                 </div>
