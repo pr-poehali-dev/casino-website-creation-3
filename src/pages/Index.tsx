@@ -94,10 +94,10 @@ const Index = () => {
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity text-white"
-                onClick={() => scrollToSection('contact')}
+                onClick={() => window.open('https://t.me/immspeedy', '_blank')}
               >
                 <Icon name="Send" className="mr-2" size={20} />
-                Связаться в Telegram
+                Написать в Telegram
               </Button>
               <Button 
                 size="lg" 
@@ -251,9 +251,10 @@ const Index = () => {
                 <Button 
                   className="w-full bg-gradient-to-r from-secondary to-primary hover:opacity-90 transition-opacity text-lg py-6 text-white"
                   size="lg"
+                  onClick={() => window.open('https://t.me/immspeedy', '_blank')}
                 >
                   <Icon name="Send" className="mr-2" size={20} />
-                  Отправить сообщение
+                  Написать в Telegram
                 </Button>
               </form>
 
