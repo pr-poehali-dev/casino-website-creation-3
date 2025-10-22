@@ -90,7 +90,7 @@ const Index = () => {
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
               Скупаю и продаю эксклюзивные NFT подарки. Быстро, безопасно, выгодно.
             </p>
-            <div className="flex gap-4 justify-center pt-4">
+            <div className="flex gap-4 justify-center pt-4 flex-wrap">
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity text-white"
@@ -98,6 +98,15 @@ const Index = () => {
               >
                 <Icon name="Send" className="mr-2" size={20} />
                 Написать в Telegram
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                onClick={() => window.open('https://t.me/+wCu-erwzWmw0NDAy', '_blank')}
+                className="border-2 border-secondary hover:bg-secondary hover:text-white"
+              >
+                <Icon name="MessageCircle" className="mr-2" size={20} />
+                Отзывы покупателей
               </Button>
               <Button 
                 size="lg" 
