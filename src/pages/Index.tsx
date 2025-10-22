@@ -139,6 +139,24 @@ const Index = () => {
               <Button 
                 size="lg" 
                 variant="outline"
+                onClick={() => window.open('https://t.me/ElfIGiftRobot', '_blank')}
+                className="border-2 border-primary hover:bg-primary hover:text-white"
+              >
+                <Icon name="Bot" className="mr-2" size={20} />
+                OtsElf
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                onClick={() => window.open('https://t.me/NexusGiftRobot', '_blank')}
+                className="border-2 border-accent hover:bg-accent hover:text-white"
+              >
+                <Icon name="Bot" className="mr-2" size={20} />
+                Nexus
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
                 onClick={() => scrollToSection('about')}
                 className="border-2"
               >
