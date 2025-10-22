@@ -233,17 +233,27 @@ const Index = () => {
                   <div>
                     <h3 className="text-2xl font-bold mb-3">Надёжность</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Провожу сделки только через проверенного бота @ElfIGiftRobot в Telegram. 
+                      Провожу сделки только через проверенныхботов OtsElf и Nexus в Telegram. 
                       Все транзакции прозрачны и безопасны.
                     </p>
-                    <Button 
-                      variant="outline"
-                      className="mt-4 border-primary/50 hover:bg-primary hover:text-white"
-                      onClick={() => window.open('https://t.me/ElfIGiftRobot', '_blank')}
-                    >
-                      <Icon name="Bot" className="mr-2" size={18} />
-                      Перейти к боту
-                    </Button>
+                    <div className="flex gap-3 mt-4 flex-wrap">
+                      <Button 
+                        variant="outline"
+                        className="border-primary/50 hover:bg-primary hover:text-white"
+                        onClick={() => window.open('https://t.me/ElfIGiftRobot', '_blank')}
+                      >
+                        <Icon name="Bot" className="mr-2" size={18} />
+                        OtsElf
+                      </Button>
+                      <Button 
+                        variant="outline"
+                        className="border-secondary/50 hover:bg-secondary hover:text-white"
+                        onClick={() => window.open('https://t.me/NexusGiftRobot', '_blank')}
+                      >
+                        <Icon name="Bot" className="mr-2" size={18} />
+                        Nexus
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </Card>
