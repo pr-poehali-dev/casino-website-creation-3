@@ -16,6 +16,33 @@ const Index = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const createStars = () => {
+      const container = document.getElementById('stars-container');
+      if (!container) return;
+      
+      for (let i = 0; i < 200; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.animationDelay = `${Math.random() * 3}s`;
+        container.appendChild(star);
+      }
+
+      for (let i = 0; i < 5; i++) {
+        const shootingStar = document.createElement('div');
+        shootingStar.className = 'shooting-star';
+        shootingStar.style.left = `${Math.random() * 100}%`;
+        shootingStar.style.animationDuration = `${3 + Math.random() * 3}s`;
+        shootingStar.style.animationDelay = `${Math.random() * 5}s`;
+        container.appendChild(shootingStar);
+      }
+    };
+
+    createStars();
+  }, []);
+
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -44,9 +71,11 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative overflow-hidden bg-background">
+      <div id="stars-container" className="fixed inset-0 z-0" />
+      
       <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        scrolled ? 'bg-background/80 backdrop-blur-md shadow-lg shadow-primary/20' : 'bg-transparent'
       }`}>
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <h1 className="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
@@ -77,9 +106,8 @@ const Index = () => {
 
       <section 
         id="home" 
-        className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20"
+        className="min-h-screen flex items-center justify-center relative pt-20 z-10"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 animate-gradient bg-[length:200%_200%]" />
         
         <div className="container mx-auto px-4 z-10">
           <div className="text-center space-y-6 animate-fade-in">
@@ -123,7 +151,7 @@ const Index = () => {
             {nftGifts.map((gift, index) => (
               <Card 
                 key={index}
-                className="group hover:scale-105 transition-all duration-300 hover:shadow-2xl cursor-pointer border-2 animate-fade-in bg-gradient-to-br from-white to-muted/30"
+                className="group hover:scale-105 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/50 cursor-pointer border-2 border-primary/30 animate-fade-in bg-card/50 backdrop-blur-sm"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardHeader>
@@ -139,7 +167,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="about" className="min-h-screen flex items-center bg-gradient-to-br from-muted/30 to-background py-20">
+      <section id="about" className="min-h-screen flex items-center py-20 z-10 relative">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12 animate-fade-in">
@@ -150,7 +178,7 @@ const Index = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              <Card className="p-8 hover:shadow-xl transition-shadow animate-fade-in border-2">
+              <Card className="p-8 hover:shadow-xl hover:shadow-primary/30 transition-shadow animate-fade-in border-2 border-primary/30 bg-card/50 backdrop-blur-sm">
                 <div className="flex items-start gap-4">
                   <div className="text-4xl">💼</div>
                   <div>
@@ -163,7 +191,7 @@ const Index = () => {
                 </div>
               </Card>
 
-              <Card className="p-8 hover:shadow-xl transition-shadow animate-fade-in border-2" style={{ animationDelay: '0.1s' }}>
+              <Card className="p-8 hover:shadow-xl hover:shadow-primary/30 transition-shadow animate-fade-in border-2 border-primary/30 bg-card/50 backdrop-blur-sm" style={{ animationDelay: '0.1s' }}>
                 <div className="flex items-start gap-4">
                   <div className="text-4xl">⚡</div>
                   <div>
@@ -186,7 +214,7 @@ const Index = () => {
                 </div>
               </Card>
 
-              <Card className="p-8 hover:shadow-xl transition-shadow animate-fade-in border-2" style={{ animationDelay: '0.2s' }}>
+              <Card className="p-8 hover:shadow-xl hover:shadow-primary/30 transition-shadow animate-fade-in border-2 border-primary/30 bg-card/50 backdrop-blur-sm" style={{ animationDelay: '0.2s' }}>
                 <div className="flex items-start gap-4">
                   <div className="text-4xl">🎯</div>
                   <div>
@@ -199,15 +227,23 @@ const Index = () => {
                 </div>
               </Card>
 
-              <Card className="p-8 hover:shadow-xl transition-shadow animate-fade-in border-2" style={{ animationDelay: '0.3s' }}>
+              <Card className="p-8 hover:shadow-xl hover:shadow-primary/30 transition-shadow animate-fade-in border-2 border-primary/30 bg-card/50 backdrop-blur-sm" style={{ animationDelay: '0.3s' }}>
                 <div className="flex items-start gap-4">
                   <div className="text-4xl">🤝</div>
                   <div>
                     <h3 className="text-2xl font-bold mb-3">Надёжность</h3>
                     <p className="text-muted-foreground leading-relaxed">
-                      Провожу сделки только через проверенных ботов в Telegram. 
+                      Провожу сделки только через проверенного бота @ElfIGiftRobot в Telegram. 
                       Все транзакции прозрачны и безопасны.
                     </p>
+                    <Button 
+                      variant="outline"
+                      className="mt-4 border-primary/50 hover:bg-primary hover:text-white"
+                      onClick={() => window.open('https://t.me/ElfIGiftRobot', '_blank')}
+                    >
+                      <Icon name="Bot" className="mr-2" size={18} />
+                      Перейти к боту
+                    </Button>
                   </div>
                 </div>
               </Card>
@@ -216,8 +252,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="min-h-screen flex items-center py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-tr from-secondary/10 via-accent/10 to-primary/10" />
+      <section id="contact" className="min-h-screen flex items-center py-20 relative z-10">
         
         <div className="container mx-auto px-4 z-10">
           <div className="max-w-2xl mx-auto">
@@ -231,7 +266,7 @@ const Index = () => {
               </p>
             </div>
 
-            <Card className="p-8 shadow-2xl animate-fade-in border-2">
+            <Card className="p-8 shadow-2xl shadow-primary/30 animate-fade-in border-2 border-primary/30 bg-card/50 backdrop-blur-sm">
               <form className="space-y-6">
                 <div>
                   <label className="block text-sm font-semibold mb-2">Ваше имя</label>
