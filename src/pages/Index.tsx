@@ -7,6 +7,7 @@ import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [isOnline, setIsOnline] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,6 +15,19 @@ const Index = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const checkOnlineStatus = () => {
+      const now = new Date();
+      const hour = now.getHours();
+      setIsOnline(hour >= 8 || hour === 0);
+    };
+
+    checkOnlineStatus();
+    const interval = setInterval(checkOnlineStatus, 60000);
+
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -115,8 +129,21 @@ const Index = () => {
             <h2 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
               NFT Подарки в Telegram
             </h2>
+            
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="flex items-center gap-2 bg-card/50 backdrop-blur-sm px-4 py-2 rounded-full border border-primary/30">
+                <div className={`w-3 h-3 rounded-full ${isOnline ? 'bg-green-500' : 'bg-red-500'} animate-pulse`} />
+                <span className="text-sm font-medium">
+                  {isOnline ? 'Онлайн' : 'Оффлайн (00:00 - 08:00)'}
+                </span>
+              </div>
+            </div>
+
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
               Скупаю и продаю эксклюзивные NFT подарки. Быстро, безопасно, выгодно.
+            </p>
+            <p className="text-base md:text-lg text-muted-foreground/80 max-w-xl mx-auto">
+              ⚡ Отвечаю почти сразу после вопроса • Работаю без выходных
             </p>
             <div className="flex gap-4 justify-center pt-4 flex-wrap">
               <Button 
